@@ -12,7 +12,7 @@
             max-width: 700px;
             margin: 20px auto;
             margin-bottom: 40px;
-            padding: 24px;
+            padding: 28px;
             background-color: #ffffff;
             border: 4px solid #000000;
             box-shadow: 8px 8px 0px #FC4b37;
@@ -24,11 +24,20 @@
             text-align: center;
             background-color: black;
             box-shadow: 8px 8px red;
+            filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.3));
         }
         .intro {
             display: block;
             text-align: center;
             margin-bottom: 30px;
+        }
+        #address {
+            display: block;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 1000;
+            color: black;
+            
         }
         h3 {
             border-bottom: 1px solid;
@@ -38,6 +47,7 @@
             font-size: 0.85rem;
             letter-spacing: 2px;
             color: #f4ecec;
+            filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.1));
             
         }
         p {
@@ -53,74 +63,149 @@
         .menu-section {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            padding: 15px;
+            padding: 25px;
             gap: 20px;
         }
-        .menu-item {
-            display: flex;
-            content: center;
+        #nigiri-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 20px;
         }
         .section-header {
             background-color: #FC4b37;
             box-shadow: 8px 8px black;
             padding: 7px;
         }
+        #gyoza img {
+            width: 200px;
+            position: absolute;
+            left: 80%;
+            transform: translateX(-50%);
+            top: 580px; 
+            z-index: 100;
+            filter: drop-shadow(0px 10px 15px rgba(44, 47, 44, 0.388));
+        }
+        #roll img {
+            width: 320px;
+            position: absolute;
+            left: 58%;
+            top: 830px;
+            z-index: 100;
+            filter: drop-shadow(0px 10px 15px rgba(44, 47, 44, 0.388));
+        }
+        #nigiri img {
+            width: 225px;
+            position: absolute;
+            left: 61%;
+            top: 2490px;
+            z-index: 100;
+            filter: drop-shadow(0px 10px 15px rgba(44, 47, 44, 0.388));
+        }
+        #oreo img {
+            width: 200px;
+            position: absolute;
+            left: 61%;
+            top: 2870px;
+            z-index: 100;
+            filter: drop-shadow(0px 10px 15px rgba(44, 47, 44, 0.388));
+        }
         @media (max-width: 650px) {
             .menu-section {
-                grid-template-columns: 1;
+                grid-template-columns: 1 fr;
             }
         }
     </style>
 </head>
 <body>
-<h1 id="sushi-ai">SUSHI AI<br> 寿司愛</h1>
+<div id="top-part">
+    <h1 id="sushi-ai">SUSHI AI<br> 寿司愛</h1>
+</div>
 <p class="intro"><i>Discover vibrant Japanese flavors with our diverse and creative menu, offering a perfect blend of tradition and innovation.</i></p>
-<p class="intro">910 Olive St, St Louis, MO 63101</p>
+<a id="address" href="https://www.google.com/maps/place/Sushi+Ai/@38.6288357,-90.1940875,16z/data=!3m1!4b1!4m6!3m5!1s0x87d8b319a98b3c99:0xfe60a6fb55206fc9!8m2!3d38.6288357!4d-90.1940875!16s%2Fg%2F1263ns_jg?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D">910 Olive St, St Louis, MO 63101</a>
 <h3 class="section-header">Lunch ランチ: $14.99 per person</h3>
-
-    <p>Option 1: All You Can Eat Lunch (Dine in only)</p>
-    <p>Option 2: Lunch Combo - [1x Side, 2x Rolls, 2x Sushi] <i>or</i> [2x Rolls, 4x Sushi]</p>
+<div class="menu-section">
+    <p><b>Option 1:</b> All You Can Eat Lunch (Dine in only)</p>
+    <p><b>Option 2:</b> Lunch Combo - [1x Side, 2x Rolls, 2x Sushi] <i>or</i> [2x Rolls, 4x Sushi]</p>
+</div>
 <h3 class="section-header">Sides 付け合わせ</h3>
+<div id="gyoza"><img src="gyoza.png" alt="Gyoza"></div>
 <div class="menu-section">
     <div class="menu-column1">
-        <div class="menu-item"><p>Crab Rangoon </p></div>
-        <div class="menu-item"><p>Shumai <br> <i>Shrimp dumpling</i></p></div>
-        <div class="menu-item"><p>Ginger Salad</p></div>
+        <p><b>Crab Rangoon</b> </p>
+        <p><b>Shumai</b> <br> <i>Shrimp dumpling</i></p>
+        <p><b>Ginger Salad</b></p>
     </div>
     <div class="menu-column2">
-        <p>Vegetable Tempura</p>
-        <p>Miso Soup</p>
-        <p>Gyoza  <i>Japanese pot sticker</i></p>
+        <p><b>Vegetable Tempura</b></p>
+        <p><b>Miso Soup</b></p>
+        <p><b>Gyoza</b><br><i>Japanese pot sticker</i></p>
     </div>
 </div>
 <h3 class="section-header">Rolls ロール</h3>
+<div id="roll"><img src="2dsushi.png" alt="2dsushi"></div>
 <p>*=Raw #=Fried</p>
 <div class="menu-section">
     <div class="menu-column1">
-        <p>Alaska Roll * <br> <i>Salmon, avocado, cucumber</i></p>
-        <p>Salmon Avocado Roll <br> <b class="new">new</b></p>
-        <p>American Dream Roll  <br> <i>Shrimp tempura, tobiko, cucumber, eel, avocado, eel sauce</i></p>
-        <p>Shrimp Avocado Roll  <br> <b class="new">new</b> - <i>Steamed shrimp, avocado &amp; spicy mayo on top</i></p>
+        <p><b>Alaska Roll *</b><br><i>Salmon, avocado, cucumber</i></p>
+        <p><b>Salmon Avocado Roll</b> <b class="new">new</b></p>
+        <p><b>American Dream Roll</b><br><i>Shrimp tempura, tobiko, cucumber, eel, avocado, eel sauce</i></p>
+        <p><b>Shrimp Avocado Roll</b> <b class="new">new</b><br> <i>Steamed shrimp, avocado &amp; spicy mayo on top</i></p>
+        <p><b>Avocado Roll</b></p>
+        <p><b>Shrimp Tempura Roll</b><br><i>Cucumber, avocado, masago &amp; shrimp, eel sauce</i></p>
+        <p><b>Christmas Roll *</b><br><i>Tuna, avocado inside, tobiko on top</i></p>
+        <p><b>Snow White Roll</b> <b class="new">new</b><br><i>Cucumber, avocado &amp; crab inside, honey cheese on top</i></p>
+        <p><b>Crab &amp; Shrimp Roll</b><br><i>Snow crab, masago, avocado, shrimp tempura, eel sauce</i></p>
+        <p><b>Spicy Crab Roll</b><br><i>Crab, spicy mayo</i></p>
+        <p><b>Spicy Salmon Roll *</b></p>
+        <p><b>Crunchy Roll</b><br><i>Snow crab, avocado &amp; tempura flakes</i></p>
+        <p><b>Spicy Tuna Roll *</b><br><i>Tuna with chef's special sauce</i></p>
+        <p><b>Eel Roll</b><br><i>Eel, eel sauce</i></p>
+        <p><b>St. Louis Roll *</b><br><i>Salmon, honey cheese mixed with crab meat</i></p>
+        <p><b>Futo Maki Roll</b><br><i>Cucumber, crab egg, pickle, radith &amp; masago</i></p>
     </div>
     <div class="menu-column2">
-        <p>Christmas Roll # <br><i>Tuna, avocado inside, tobiko on top, eel sauce</i></p>
-        <p>Philadelphia Roll # <br> <i>Salmon, cream cheese, scallion, eel sauce</i></p>
-        <p>Jalapeno Popper Roll # <br> <b class="new">new</b> - <i>Jalapeno, cream cheese &amp; bacon bits, eel sauce</i></p>
-        <p>St. Louis Roll (8)#<br> <i>Salmon, honey cheese mixed with crab meet, eel sauce</i></p>
+        <p><b>Sweet Dream Roll</b><br><i>Sweet potato &amp; honey cheese with eel sauce</i></p>
+        <p><b>Honey Roll</b><br><i>Honey cheese mixed with crab meat &amp; tempura flakes</i></p>
+        <p><b>Sweet Potato Roll</b></p>
+        <p><b>Jalapeño Roll</b><br><i>with spicy mayo</i></p>
+        <p><b>Tuna Roll *</b></p>
+        <p><b>Cucumber Roll</b></p>
+        <p><b>Maryland Roll *</b><br><i>Salmon, eel, cucumber, avocado, tobiko &amp; eel sauce</i></p>
+        <p><b>Vegetable Roll</b><br><i>Cucumber, sweet potato, avocado</i></p>
+        <p><b>Philadelphia Roll *</b><br><i>Salmon, cream cheese, scallion</i></p>
+        <p><b>Vegetable Futo Maki Roll <b class="new">new</b></b><br><i>Cucumber, avocado, pickled radish &amp; kanpyo</i></p>
+        <p><b>Pickled Radish Roll</b></p>
+        <p><b>Yamasa Roll</b><br><i>Crab &amp; tempura flakes, tobiko, kewpie mayo</i></p>
+        <p><b>Salmon Roll *</b></p>
+        <p><b>Christmas Roll #</b> <br><i>Tuna, avocado inside, tobiko on top, eel sauce</i></p>
+        <p><b>Philadelphia Roll #</b><br> <i>Salmon, cream cheese, scallion, eel sauce</i></p>
+        <p><b>Jalapeno Popper Roll #</b> <b class="new">new</b><br> <i>Jalapeno, cream cheese &amp; bacon bits, eel sauce</i></p>
+        <p><b>St. Louis Roll #</b><br> <i>Salmon, honey cheese mixed with crab meet, eel sauce</i></p>
     </div>
 </div>
 <h3 class="section-header"> Nigiri 握り寿司</h3>
+<div id="nigiri"><img src="nigiri.png" alt="nigiri"></div>
 <p>*=Raw #=Fried</p>
-<div class="menu-section">
-    <p>Avocado</p>
-    <p>Mackeral*</p>
-    <p>Shrimp</p>
+<div id="nigiri-section">
+    <p><b>Avocado</b></p>
+    <p><b>Mackeral *</b></p>
+    <p><b>Shrimp</b></p>
+    <p><b>Crab</b></p>
+    <p><b>Masago *</b></p>
+    <p><b>Tuna *</b></p>
+    <p><b>Eel</b></p>
+    <p><b>Red Snapper*</b></p>
+    <p><b>Tofu Skin</b></p>
+    <p><b>Egg</b></p>
+    <p><b>Salmon *</b></p>
+    <p><b>White Tuna *</b></p>
 </div>
 <h3 class="section-header">Dessert デザート</h3>
+<div id="oreo"><img src="fried-oreo.png" alt="fried oreo"></div>
 <p><i>(Each 0.99, Regular Price 3.99)</i></p>
 <div class="menu-section">
-    <p>Ice Cream <br> <i>(Chocolate, Green Tea, Vanilla)</i></p>
-    <p>Fried Oreo </p>
+    <p><b>Ice Cream</b> <br> <i>(Chocolate, Green Tea, Vanilla)</i></p>
+    <p><b>Fried Oreos</b> </p>
 </div>
 <p id="disclaimer"><i>Order what you can eat; Additional fee for leftovers (including rice)</i></p>
 </body>
