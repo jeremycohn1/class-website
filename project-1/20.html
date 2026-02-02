@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variation 20</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            color: #2A2725;
+            line-height: 1.5;
+            max-width: 700px;
+            margin: 20px auto;
+            margin-bottom: 40px;
+            padding: 24px;
+            background-color: #ffffff;
+            border: 4px solid #000000;
+            box-shadow: 8px 8px 0px #FC4b37;
+        }
+        h1 {
+            font-weight: 1000;
+            font-size: 3rem;
+            color: #FC4b37;
+            text-align: center;
+            background-color: black;
+            box-shadow: 8px 8px red;
+        }
+        .intro {
+            display: block;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h3 {
+            border-bottom: 1px solid;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: #f4ecec;
+            
+        }
+        p {
+            margin: 10px 0;
+            padding: 5px 0;
+        }
+        .new {
+            font-family: "Condiment", cursive;
+        }
+        #disclaimer {
+            border-top: 1px solid;
+        }
+        .menu-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 15px;
+            gap: 20px;
+        }
+        .menu-item {
+            display: flex;
+            content: center;
+        }
+        .section-header {
+            background-color: #FC4b37;
+            box-shadow: 8px 8px black;
+            padding: 7px;
+        }
+        @media (max-width: 650px) {
+            .menu-section {
+                grid-template-columns: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1 id="sushi-ai">SUSHI AI<br> 寿司愛</h1>
+<p class="intro"><i>Discover vibrant Japanese flavors with our diverse and creative menu, offering a perfect blend of tradition and innovation.</i></p>
+<p class="intro">910 Olive St, St Louis, MO 63101</p>
+<h3 class="section-header">Lunch ランチ: $14.99 per person</h3>
+
+    <p>Option 1: All You Can Eat Lunch (Dine in only)</p>
+    <p>Option 2: Lunch Combo - [1x Side, 2x Rolls, 2x Sushi] <i>or</i> [2x Rolls, 4x Sushi]</p>
+<h3 class="section-header">Sides 付け合わせ</h3>
+<div class="menu-section">
+    <div class="menu-column1">
+        <div class="menu-item"><p>Crab Rangoon </p></div>
+        <div class="menu-item"><p>Shumai <br> <i>Shrimp dumpling</i></p></div>
+        <div class="menu-item"><p>Ginger Salad</p></div>
+    </div>
+    <div class="menu-column2">
+        <p>Vegetable Tempura</p>
+        <p>Miso Soup</p>
+        <p>Gyoza  <i>Japanese pot sticker</i></p>
+    </div>
+</div>
+<h3 class="section-header">Rolls ロール</h3>
+<p>*=Raw #=Fried</p>
+<div class="menu-section">
+    <div class="menu-column1">
+        <p>Alaska Roll * <br> <i>Salmon, avocado, cucumber</i></p>
+        <p>Salmon Avocado Roll <br> <b class="new">new</b></p>
+        <p>American Dream Roll  <br> <i>Shrimp tempura, tobiko, cucumber, eel, avocado, eel sauce</i></p>
+        <p>Shrimp Avocado Roll  <br> <b class="new">new</b> - <i>Steamed shrimp, avocado &amp; spicy mayo on top</i></p>
+    </div>
+    <div class="menu-column2">
+        <p>Christmas Roll # <br><i>Tuna, avocado inside, tobiko on top, eel sauce</i></p>
+        <p>Philadelphia Roll # <br> <i>Salmon, cream cheese, scallion, eel sauce</i></p>
+        <p>Jalapeno Popper Roll # <br> <b class="new">new</b> - <i>Jalapeno, cream cheese &amp; bacon bits, eel sauce</i></p>
+        <p>St. Louis Roll (8)#<br> <i>Salmon, honey cheese mixed with crab meet, eel sauce</i></p>
+    </div>
+</div>
+<h3 class="section-header"> Nigiri 握り寿司</h3>
+<p>*=Raw #=Fried</p>
+<div class="menu-section">
+    <p>Avocado</p>
+    <p>Mackeral*</p>
+    <p>Shrimp</p>
+</div>
+<h3 class="section-header">Dessert デザート</h3>
+<p><i>(Each 0.99, Regular Price 3.99)</i></p>
+<div class="menu-section">
+    <p>Ice Cream <br> <i>(Chocolate, Green Tea, Vanilla)</i></p>
+    <p>Fried Oreo </p>
+</div>
+<p id="disclaimer"><i>Order what you can eat; Additional fee for leftovers (including rice)</i></p>
+</body>
+</html>
