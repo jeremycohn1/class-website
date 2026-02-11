@@ -254,6 +254,7 @@
         @media (max-width: 450px) {
             .body {
                 grid-template-columns: 1fr;
+                overflow-x: hidden;
             }
             .menu-section {
                 grid-template-columns: 1fr;
@@ -261,6 +262,15 @@
            #nigiri-section {
                 grid-template-columns: 1fr 1fr;
                 padding: 0px 15px 0px 45px;
+            }
+            .food-sidebar {
+                transform: translateX(-50%) scale(0.6);
+            }
+            #top-part {
+                font-family: "Condiment";
+            }
+            h3 {
+                font-family: "Condiment";
             }
         }
         @media (max-width: 390px) {
@@ -273,6 +283,16 @@
            #nigiri-section {
                 grid-template-columns: 1fr;
                 padding: 0px 15px 0px 45px;
+            }
+            .body {
+                grid-template-columns: 1fr;
+                overflow-x: hidden;
+            }
+             #top-part {
+                font-family: "Condiment";
+            }
+            h3 {
+                font-family: "Condiment";
             }
         }
     </style>
