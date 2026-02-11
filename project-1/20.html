@@ -7,11 +7,16 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
         html {
-        background-color: #1c1b1b;
-        background-image: radial-gradient(#e80d0d 1px, transparent 1px);
-        background-size: 20px 20px;
-        padding: 20px;
-        scroll-behavior: smooth;
+            background-color: #1c1b1b;
+            background-image: radial-gradient(#e80d0d 1px, transparent 1px);
+            background-size: 20px 20px;
+            padding: 20px;
+            scroll-behavior: smooth;
+            transition: background-color 0.5s ease;
+            cursor: url("chopsticks.png") 0 30, auto;
+        }
+        a:hover, #tray:hover, #soy-sauce-img:hover .food-sidebar:hover {
+            cursor: url(chopsticks-pinch.png) 0 30, pointer !important;
         }
         body {
             font-family: Optima; /* alternatives: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif | 'Courier New', Courier, monospace | Optima */
@@ -22,13 +27,14 @@
             overflow-wrap: break-word;
             max-width: 700px;
             margin: 20px auto;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             padding: 20px;
+            padding-bottom: 120px;
             background-color:#ffffff;
             border: 4px solid#000000;
             box-shadow: 8px 8px 0px#FC4b37;
             position: relative;
-            
+            cursor: url("chopsticks.png") 0 30, auto;
         }
         #top-part {
             font-family: "Condiment", cursive;
@@ -107,28 +113,36 @@
         }
         #roll-image {
             width: 170px;
-            margin-top: -20px;
-            margin-bottom: -20px;
+            margin-right: -35px;
+            margin-left: -35px;
             filter: drop shadow(5px 5px 10px rgba(0,0,0,0.3));
             transition: transform 0.3s ease;
         }
+        #favicon {
+            width: 85px;
+        }
         .food-sidebar {
-            align-items: center;
             position: fixed;
-            width: 120px;
-            right: 70px; 
-            top: 50%; 
-            transform: translateY(-50%); 
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 100px;
             display: flex;
-            flex-direction: column; 
+            flex-direction: row; 
+            align-items: center;
             z-index: 100;   
             pointer-events: auto; 
+            backdrop-filter: blur(4px); 
             background-color: rgba(128, 128, 128, 0.146);
-            border-radius: 12px;
+            filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.3));
+            background: blur;
+            border-radius: 50px;
+            
             padding: 10px;
+            gap: 10px;
         }
         .food-sidebar img {
-            width: 100px;      
+            width: 80px;      
             height: auto;
             filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.3));
             transition: transform 0.3s ease;
@@ -136,11 +150,14 @@
         .food-sidebar img:hover {
             transform: scale(1.2) rotate(-5deg);
         }
+        .food-sidebar img:active {
+            transform: scale(0.8) rotate(-5deg);
+        }
         #soy-sauce img{
             position: absolute;
             width: 280px;
-            top: 1055px;
-            left: 550px;
+            top: 2200px;
+            right: 580px;
             transform: rotate(-5deg);
             z-index: 100;
             transition: transform 0.3s ease;
@@ -165,18 +182,18 @@
         #tray {
             position: absolute;
             width: 400px;
-            top: 2300px;
-            right: 550px;
-            transform: rotate(-80deg);
+            top: 985px;
+            left: 480px;
+            transform: rotate(-20deg);
             z-index: 100;
             transition: transform 0.3s ease;
         }
         #tray:hover {
-            transform: scale(1.05) rotate(-81deg);
+            transform: scale(1.05) rotate(-25deg);
             filter: brightness(1.2);
         }
         #tray:active {
-            transform: scale(0.95) rotate(-82deg); 
+            transform: scale(0.95) rotate(-26deg); 
         }
         .wasabi-background {
             background-color: #7BA05B !important; 
@@ -186,16 +203,25 @@
             background-color: #F8C8DC !important;
             background-image: none !important;
         }
+        @media (max-width: 1300px) {
+             body {
+                overflow-x: hidden;
+            }
+        }
         @media (max-width: 1000px) {
-             .food-sidebar {
-                transform: scale(0.7);
-                top: 20%;
-                right: 20px
+            body {
+                margin-right: 140px;
             }
         }
         @media (max-width: 660px) {
             #nigiri-section {
                 padding: 10px 15px 0px 45px;
+            }
+            .food-sidebar {
+                transform: translateX(-50%) scale(0.7);
+            }
+            body {
+                margin-bottom: 5px;
             }
         }
         @media (max-width: 550px) {
@@ -212,6 +238,9 @@
                 overflow-wrap: break-word;
                 word-wrap: break-word;
                 hyphens: auto;
+            }
+            .food-sidebar {
+                display: none;
             }
         }
         @media (max-width: 450px) {
@@ -338,6 +367,7 @@
     <p><i>Order what you can eat; Additional fee for leftovers (including rice)</i></p>
 </div>
 <div class="food-sidebar">
+    <a href="#top-part"><img src="favicon.png" alt="Favicon" id="favicon"></a>
     <a href="#sides"><img src="gyoza.png" alt="Gyoza"></a>
     <a href="#rolls"><img src="2dsushi.png" alt="Rolls" id="roll-image"></a>
     <a href="#sushi"><img src="nigiri.png" alt="Nigiri"></a>
