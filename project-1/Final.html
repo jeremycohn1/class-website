@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi Ai Lunch Menu Final</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        html {
+            background-color: #1c1b1b;
+            background-image: radial-gradient(#e80d0d 1px, transparent 1px);
+            background-size: 20px 20px;
+            padding: 20px;
+            scroll-behavior: smooth;
+            transition: background-color 0.5s ease;
+        }
+        body {
+            font-family: Optima; /* alternatives: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif | 'Courier New', Courier, monospace | Optima */
+            color:#2A2725;
+            line-height: 1.5;
+            box-sizing: border-box;
+            width: 100%;
+            overflow-wrap: break-word;
+            max-width: 700px;
+            margin: 20px auto;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color:#ffffff;
+            border: 4px solid#000000;
+            box-shadow: 8px 8px 0px#FC4b37;
+            position: relative;
+        }
+        html.chopstick-mode, html.chopstick-mode body {
+            cursor: url(chopsticks.png) 0 32, auto !important;
+        }
+        html.chopstick-mode a:hover, html.chopstick-mode img:hover, html.chopstick-mode #tray:hover, html.chopstick-mode #soy-sauce-img:hover {
+            cursor: url(chopsticks-pinch.png) 0 32, pointer !important;
+        }
+        #top-part {
+            font-family: "Condiment", cursive;
+            color: rgb(245, 232, 232);
+            text-align: center;
+            background-color:#FC4b37;
+            box-shadow: 8px 8px black;
+            filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.3));
+        }
+        #top-part h1 {
+            font-weight: 1000;
+            font-size: 4rem;
+            margin-bottom: 0;
+        }
+        #top-part h2 {
+            font-weight: 100;
+            font-size: 3rem;
+            margin-top: 0;
+        }
+        #intro {
+            text-align: center; 
+            padding: 10px;
+            margin-bottom: -10px;
+        }
+        .intro {
+            display: block;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #address {
+            display: block;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 1000;
+            color: black;
+        }
+        #date {
+            margin-top: -20px;
+        }
+        #price {
+            font-size: 1.2rem;
+        }
+        h3 {
+            font-family: "Condiment", cursive;
+            border-bottom: 1px solid;
+            padding-bottom: 5px;
+            margin-top: 30px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color:#f4ecec;
+            filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.1));
+        }
+        p {
+            margin: 10px 0;
+            padding: 5px 0;
+        }
+        .new {
+            font-family: "Condiment", cursive;
+        }
+        #disclaimer {
+            border-top: 1px solid;
+        }
+        .menu-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-left: 25px;
+            gap: 20px;
+        }
+        #nigiri-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 0px 15px 0px 60px;
+        }
+        .section-header {
+            background-color:#FC4b37;
+            box-shadow: 8px 8px black;
+            padding: 7px;
+        }
+        #roll-image {
+            width: 170px;
+            margin-top: -35px;
+            margin-bottom: -35px;
+            filter: drop shadow(5px 5px 10px rgba(0,0,0,0.3));
+            transition: transform 0.3s ease;
+        }
+        #favicon {
+            width: 85px;
+        }
+        .food-sidebar {
+            position: fixed;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 100;
+            pointer-events: auto;
+            backdrop-filter: blur(4px);
+            background-color: rgba(109, 104, 104, 0.146);
+            filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.3));
+            background: blur;
+            border-radius: 50px;
+            padding: 15px;
+            gap: 10px;
+        }
+        .food-sidebar img {
+            width: 90px;      
+            height: auto;
+            filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.3));
+            transition: transform 0.3s ease;
+        }
+        .food-sidebar img:hover {
+            transform: scale(1.2) rotate(-5deg);
+        }
+        .food-sidebar img:active {
+            transform: scale(0.8) rotate(-5deg);
+        }
+        #soy-sauce-img{
+            position: absolute;
+            width: 280px;
+            top: 2200px;
+            right: 580px;
+            transform: rotate(-5deg);
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        #soy-sauce-img:hover {
+            transform: scale(1.05) rotate(-10deg);
+            filter: brightness(1.2);
+        }
+        #soy-sauce-img:active {
+            transform: scale(0.95) rotate(-11deg); 
+        }
+        #chopsticks-icon {
+            position: absolute;
+            width: 150px;
+            top: 100px;
+            right: 650px;
+            transform: rotate(-15deg);
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        #chopsticks-icon:hover {
+            transform: scale(1.05) rotate(-20deg);
+            filter: brightness(1.2);
+        }
+        #chopsticks-icon:active {
+            transform: scale(0.95) rotate(-21deg); 
+        }
+        @keyframes continuous-spin { /* learned how to control spin degrees from: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes */
+            from { 
+                transform: rotate(-5deg); 
+            }
+            to { 
+                transform: rotate(-355deg); 
+            }
+        }
+        .spinning {
+            animation: continuous-spin 0.6s ease-in-out !important;
+            animation-fill-mode: none;
+            transform-origin: center center;
+        }
+        #tray {
+            position: absolute;
+            width: 400px;
+            top: 985px;
+            left: 480px;
+            transform: rotate(-20deg);
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        #tray:hover {
+            transform: scale(1.05) rotate(-25deg);
+            filter: brightness(1.2);
+        }
+        #tray:active {
+            transform: scale(0.95) rotate(-26deg); 
+        }
+        .wasabi-background {
+            background-color: #7BA05B !important; 
+            background-image: none !important;
+        }
+        .ginger-background {
+            background-color: #F8C8DC !important;
+            background-image: none !important;
+        }
+        @media (max-width: 1300px) {
+             body {
+                overflow-x: hidden;
+            }
+        }
+        @media (max-width: 1000px) {
+            body {
+                margin-right: 140px;
+                padding-bottom: 120px;
+            }
+            .food-sidebar {
+                top: auto;
+                right: auto;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 100px;
+                flex-direction: row;
+                width: auto;
+            }
+            #roll-image {
+                width: 170px;
+                margin-right: -35px;
+                margin-left: -35px;
+                filter: drop shadow(5px 5px 10px rgba(0,0,0,0.3));
+                transition: transform 0.3s ease;
+            }
+        }
+        @media (max-width: 660px) {
+            #nigiri-section {
+                padding: 10px 15px 0px 45px;
+            }
+            .food-sidebar {
+                transform: translateX(-50%) scale(0.7);
+            }
+            body {
+                margin-bottom: 5px;
+            }
+        }
+        @media (max-width: 550px) {
+            #nigiri-section {
+                grid-template-columns: 1fr 1fr;
+                width: 100%;
+                padding-left: 40px;
+            }
+            body {
+                width: 100%;
+                padding: 15px;
+                margin-bottom: 80px;
+                overflow-x: hidden;
+            }
+            p {
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                hyphens: auto;
+            }
+            .food-sidebar {
+                transform: translateX(-50%) scale(0.6);
+            }
+            #top-part {
+                font-family: "Condiment";
+            }
+            h3 {
+                font-family: "Condiment";
+            }
+        }
+        @media (max-width: 450px) {
+            .body {
+                grid-template-columns: 1fr;
+                overflow-x: hidden;
+            }
+            .menu-section {
+                grid-template-columns: 1fr;
+            }
+           #nigiri-section {
+                grid-template-columns: 1fr 1fr;
+                padding: 0px 15px 0px 45px;
+            }
+            .food-sidebar {
+                transform: translateX(-50%) scale(0.6);
+            }
+            #top-part {
+                font-family: "Condiment";
+            }
+            h3 {
+                font-family: "Condiment";
+            }
+        }
+        @media (max-width: 390px) {
+           #top-part h1 {
+                font-size: 200%;
+            }
+           #top-part h2 {
+                font-size: 160%;
+            }
+           #nigiri-section {
+                grid-template-columns: 1fr;
+                padding: 0px 15px 0px 45px;
+            }
+            .body {
+                grid-template-columns: 1fr;
+                overflow-x: hidden;
+            }
+             #top-part {
+                font-family: "Condiment";
+            }
+            h3 {
+                font-family: "Condiment";
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="soy-sauce">
+        <img src="soy-sauce.png" alt="Soy Sauce" id="soy-sauce-img" onclick="soySpin()">
+    </div>
+    <img src="tray.png" alt="Tray" id="tray" onclick="changeBackground()">
+    <img src="chopsticks-icon.png"  alt="Chopsticks Cursor" id="chopsticks-icon" onclick="toggleChopsticks()">
+<div id="top-part">
+    <h1 id="sushi-ai">SUSHI AI</h1>
+    <h2>寿司愛</h2>
+</div>
+<div id="intro">
+    <p><i><b>Chef's Note:</b> This menu is interactive! Try clicking the soy sauce, wasabi tray, or the magic chopsticks to change your experience.</i></p>
+    <a id="address" href="https://www.google.com/maps/place/Sushi+Ai/@38.6288357,-90.1940875,16z/data=!3m1!4b1!4m6!3m5!1s0x87d8b319a98b3c99:0xfe60a6fb55206fc9!8m2!3d38.6288357!4d-90.1940875!16s%2Fg%2F1263ns_jg?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoASAFQAw%3D%3D">910 Olive St, St Louis, MO 63101</a>
+    <p id="date">Mon-Sat, 11AM-3PM</p>
+</div>
+<h3 id="lunch" class="section-header">Lunch ランチ: <i><b id="price">$14.99</b></i> </h3>
+<div class="menu-section">
+    <p><b>Option 1:</b> All You Can Eat Lunch (Dine in only)</p>
+    <p><b>Option 2:</b> Lunch Combo - [1x Side, 2x Rolls, 2x Sushi] or [2x Rolls, 4x Sushi]</p>
+</div>
+<h3 class="section-header" id="sides">Sides 付け合わせ</h3>
+<div class="menu-section">
+    <div class="menu-column1">
+        <p><b>Crab Rangoon</b> </p>
+        <p><b>Shumai</b> <br> <i>Shrimp dumpling</i></p>
+        <p><b>Ginger Salad</b></p>
+    </div>
+    <div class="menu-column2">
+        <p><b>Vegetable Tempura</b></p>
+        <p><b>Miso Soup</b></p>
+        <p><b>Gyoza</b><br><i>Japanese pot sticker</i></p>
+    </div>
+</div>
+<h3 class="section-header" id="rolls">Rolls ロール</h3>
+<div class="menu-section">
+    <div class="menu-column1">
+        <p><b>Alaska*</b><br><i>Salmon, avocado, cucumber</i></p>
+        <p><b>Salmon Avocado</b> <b class="new">new</b></p>
+        <p><b>American Dream</b><br><i>Shrimp tempura, tobiko, cucumber, eel, avocado, eel sauce</i></p>
+        <p><b>Shrimp Avocado</b> <b class="new">new</b><br> <i>Steamed shrimp, avocado &amp; spicy mayo on top</i></p>
+        <p><b>Avocado</b></p>
+        <p><b>Shrimp Tempura</b><br><i>Cucumber, avocado, masago &amp; shrimp, eel sauce</i></p>
+        <p><b>Christmas*</b><br><i>Tuna, avocado inside, tobiko on top</i></p>
+        <p><b>Snow White</b> <b class="new">new</b><br><i>Cucumber, avocado &amp; crab inside, honey cheese on top</i></p>
+        <p><b>Crab &amp; Shrimp</b><br><i>Snow crab, masago, avocado, shrimp tempura, eel sauce</i></p>
+        <p><b>Spicy Crab</b><br><i>Crab, spicy mayo</i></p>
+        <p><b>Spicy Salmon*</b></p>
+        <p><b>Crunchy</b><br><i>Snow crab, avocado &amp; tempura flakes</i></p>
+        <p><b>Spicy Tuna*</b><br><i>Tuna with chef's special sauce</i></p>
+        <p><b>Eel</b><br><i>Eel, eel sauce</i></p>
+        <p><b>St. Louis*</b><br><i>Salmon, honey cheese mixed with crab meat</i></p>
+        <p><b>Futo Maki</b><br><i>Cucumber, crab egg, pickle, radith &amp; masago</i></p>
+    </div>
+    <div class="menu-column2">
+        <p><b>Sweet Dream</b><br><i>Sweet potato &amp; honey cheese with eel sauce</i></p>
+        <p><b>Honey</b><br><i>Honey cheese mixed with crab meat &amp; tempura flakes</i></p>
+        <p><b>Sweet Potato</b></p>
+        <p><b>Jalapeño</b><br><i>with spicy mayo</i></p>
+        <p><b>Tuna*</b></p>
+        <p><b>Cucumber</b></p>
+        <p><b>Maryland*</b><br><i>Salmon, eel, cucumber, avocado, tobiko &amp; eel sauce</i></p>
+        <p><b>Vegetable</b><br><i>Cucumber, sweet potato, avocado</i></p>
+        <p><b>Philadelphia*</b><br><i>Salmon, cream cheese, scallion</i></p>
+        <p><b>Vegetable Futo Maki <b class="new">new</b></b><br><i>Cucumber, avocado, pickled radish &amp; kanpyo</i></p>
+        <p><b>Pickled Radish</b></p>
+        <p><b>Yamasa</b><br><i>Crab &amp; tempura flakes, tobiko, kewpie mayo</i></p>
+        <p><b>Salmon*</b></p>
+        <p><b>Christmas#</b> <br><i>Tuna, avocado inside, tobiko on top, eel sauce</i></p>
+        <p><b>Philadelphia#</b><br> <i>Salmon, cream cheese, scallion, eel sauce</i></p>
+        <p><b>Jalapeno Popper#</b> <b class="new">new</b><br> <i>Jalapeno, cream cheese &amp; bacon bits, eel sauce</i></p>
+        <p><b>St. Louis#</b><br> <i>Salmon, honey cheese mixed with crab meet, eel sauce</i></p>
+    </div>
+</div>
+<h3 class="section-header" id="sushi"> Nigiri 握り寿司</h3>
+<div id="nigiri-section">
+    <p><b>Avocado</b></p>
+    <p><b>Mackeral*</b></p>
+    <p><b>Shrimp</b></p>
+    <p><b>Crab</b></p>
+    <p><b>Masago*</b></p>
+    <p><b>Tuna*</b></p>
+    <p><b>Eel</b></p>
+    <p><b>Red Snapper*</b></p>
+    <p><b>Tofu Skin</b></p>
+    <p><b>Egg</b></p>
+    <p><b>Salmon*</b></p>
+    <p><b>White Tuna*</b></p>
+</div>
+<h3 class="section-header" id="dessert">Dessert デザート</h3>
+<p><i>(Each 0.99, Regular Price 3.99)</i></p>
+<div class="menu-section">
+    <p><b>Ice Cream</b> <br> <i>(Chocolate, Green Tea, Vanilla)</i></p>
+    <p><b>Fried Oreos</b> </p>
+</div>
+<div id="disclaimer">
+    <p>*=Raw #=Fried</p>
+    <p><i>Order what you can eat; Additional fee for leftovers (including rice)</i></p>
+</div>
+<div class="food-sidebar">
+    <a href="#top-part"><img src="favicon.png" alt="Favicon" id="favicon"></a>
+    <a href="#sides"><img src="gyoza.png" alt="Gyoza"></a>
+    <a href="#rolls"><img src="2dsushi.png" alt="Rolls" id="roll-image"></a>
+    <a href="#sushi"><img src="nigiri.png" alt="Nigiri"></a>
+    <a href="#dessert"><img src="fried-oreo.png" alt="Oreo"></a>
+</div>
+<script>
+    let clickCount = 0;
+
+    function changeBackground() {
+        
+        const table = document.documentElement;
+        clickCount++;
+
+        table.classList.toggle("wasabi-background");
+        const state = clickCount % 3; /* sets cycle of 3 different colors, indices 0 (black with red dot pattern), 1 (wasabi) and 2 (ginger) */
+        table.classList.remove("wasabi-background", "ginger-background"); /* sets clean slate so background can only be one color at a time */
+       
+        if (state === 1) { 
+             table.classList.add("wasabi-background"); /* if you tap the first time, the color becomes "wasabi" */
+        } else if (state === 2) {
+            table.classList.add("ginger-background"); /* a second click makes it "ginger" colored */
+        } 
+    }
+
+    function soySpin() {
+        const soy = document.getElementById('soy-sauce-img');
+        soy.classList.toggle('spinning');
+    }
+
+    function toggleChopsticks() {
+        document.documentElement.classList.toggle('chopstick-mode');
+    }
+</script>
+</body>
+</html>
