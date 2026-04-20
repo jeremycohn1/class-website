@@ -17,11 +17,22 @@
     a {
         color: rgb(235, 176, 65);
     }
+    #rec a {
+        text-decoration: none;
+        color: white;
+    }
+
+    #rec a:hover {
+        text-decoration: underline;
+    }
 </style>
 </head>
 <body>
     <h1>Jeremy's Class Website</h1>
     <p>Welcome to my class website!</p>
+    <div id="rec"></div>
+    <button type="button" onclick="showSong()">Give me a song rec</button>
+    <p>See more songs in <i>Profile Card</i></p>
     <h2>Exercises</h2>
     <ul>
         <li><a href="profile-card.html">Profile Card</a></li>
@@ -43,6 +54,7 @@
         <li><a href="writing1.html">Important Ritual</a></li>
         <li><a href="writing2.html">Tech the Brings out the Best</a></li>
         <li><a href="writing3.html">Embracing the "Slow" Way</a></li>
+        <li><a href="writing4.html">Appreciating Nostalgia</a></li>
     </ul>
     <h2>Projects</h2>
     <ul>
@@ -50,5 +62,52 @@
         <li><a href="project-2/index.html">Project 2. Book → Website</a></li>
         <li>Project 3. Standby Mode</li>
     </ul>
+    <script>
+        const songs = [
+            { artist: "Fugees", title: "Ready or Not" },
+            { artist: "Brandy", title: "I Wanna Be Down" },
+            { artist: "Ravyn Lenae ft. Childish Gambino", title: "One Wish" },
+            { artist: "Still Woozy", title: "Run It Back" },
+            { artist: "Dominic Fike", title: "Mama's Boy" },
+            { artist: "KAYTRANADA ft. Tinashe", title: "The Worst In Me" },
+            { artist: "Still Woozy", title: "Again" },
+            { artist: "Stella, Redinho", title: "Charmed" },
+            { artist: "Still Woozy", title: "Window" },
+            { artist: "No Doubt", title: "Don't Speak" },
+            { artist: "The Cranberries", title: "Linger" },
+            { artist: "Kali Uchis", title: "Ridin Round" },
+            { artist: "The Marías", title: "No One Noticed" },
+            { artist: "The Marías", title: "Calling U Back" },
+            { artist: "Outkast", title: "Ms. Jackson" },
+            { artist: "070 Shake", title: "Guilty Conscience" },
+            { artist: "The Weeknd", title: "Too Late" },
+            { artist: "The Weeknd", title: "Is There Someone Else?" },
+            { artist: "redveil", title: "Weight" },
+            { artist: "femdot.", title: "94 Camry Music" },
+            { artist: "Cannons", title: "Fire for You" },
+            { artist: "Hope Tala", title: "Blue" },
+            { artist: "Milky Chance", title: "Stolen Dance" },
+            { artist: "Frank Ocean ft. JAY-Z, Tyler, The Creator", title: "Biking" },
+            { artist: "Glass Animals", title: "Youth" },
+            { artist: "Ley Soul", title: "Intergalactic Janet" }
+        ];
+        function getRandomSong() {
+            const index = Math.floor(Math.random() * songs.length);
+            return songs[index];
+        }
+        function showSong() {
+            const song = getRandomSong();
+            const query = encodeURIComponent(`${song.title} ${song.artist}`);
+            const url = `https://open.spotify.com/search/${query}`;
+            document.getElementById("rec").innerHTML =
+                `<strong>${song.title}</strong> by ${song.artist}`;
+        }
+        document.getElementById("rec").innerHTML = `
+            <a href="${song.url}" target="_blank">
+            🎵 <strong>${song.title}</strong><br>
+            <span style="color: gray;">${song.artist}</span>
+            </a>
+        `;
+    </script>
 </body>
 </html>
