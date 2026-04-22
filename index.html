@@ -4,32 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jeremy's Class Website, Spring 2026 at WashU</title>
-    <link rel="stylesheet" href="assets/css/style.css">
     <style>
-    body {
-        background-color: rgb(0, 128, 128);
-        color: white;
-        font-family: Optima;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    a {
-        color: rgb(235, 176, 65);
-    }
-    #rec a {
-        text-decoration: none;
-        color: white;
-    }
+        *  {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #0d8b8b, #066565);
+            color: white;
+            font-family: Optima, "Segoe UI", sans-serif;
+            min-height: 100vh;
+            padding: 50px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.6;
+        }
 
-    #rec a:hover {
-        text-decoration: underline;
-    }
-</style>
+        body > * {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        h2 {
+            margin-top: 35px;
+            margin-bottom: 12px;
+            font-size: 1.6rem;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+            padding-bottom: 6px;
+        }
+
+        a {
+            color: rgb(255, 204, 102);
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        a:hover {
+            color: white;
+            padding-left: 4px;
+        }
+
+        ul {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        li {
+            background: rgba(255,255,255,0.08);
+            margin-bottom: 8px;
+            padding: 12px 14px;
+            border-radius: 12px;
+            transition: transform 0.2s ease, background 0.2s ease;
+        }
+
+        li:hover {
+            transform: translateX(6px);
+            background: rgba(255,255,255,0.14);
+        }
+
+        #rec {
+            margin: 20px 0;
+            padding: 18px;
+            background: rgba(255,255,255,0.12);
+            border-radius: 16px;
+            text-align: center;
+            min-height: 70px;
+            font-size: 1.1rem;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        #rec a {
+            color: white;
+        }
+
+        #rec a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            background: rgb(235, 176, 65);
+            color: rgb(18, 36, 54);
+            border: none;
+            padding: 14px 24px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            margin-bottom: 14px;
+        }
+
+        button:hover {
+            transform: translateY(-2px) scale(1.03);
+            background: rgb(255, 195, 82);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            li {
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Jeremy's Class Website</h1>
-    <p>Welcome to my class website!</p>
+    <h1>Jeremy Cohn's VPS Website</h1>
+    <p>Welcome to my site for Visual Principles of the Screen Spring '26!</p>
     <div id="rec"></div>
     <button type="button" onclick="showSong()">Give me a song rec</button>
     <p>See more songs in <i>Profile Card</i></p>
@@ -51,13 +159,13 @@
     <h2>Writings</h2>
     <ul>
         <li><a href="writing1.html">Important Ritual</a></li>
-        <li><a href="writing2.html">Tech the Brings out the Best</a></li>
+        <li><a href="writing2.html">Tech that Brings out the Best</a></li>
         <li><a href="writing3.html">Embracing the "Slow" Way</a></li>
         <li><a href="writing4.html">Appreciating Nostalgia</a></li>
     </ul>
     <h2>Projects</h2>
     <ul>
-        <li><a href="project-1/index.html">Project 1. Restaurant or Café Variations</a></li>
+        <li><a href="project-1/index.html">Project 1. Restaurant Variations</a></li>
         <li><a href="project-2/index.html">Project 2. Book → Website</a></li>
         <li><a href="project-3/index.html">Project 3. Standby Mode</a></li>
     </ul>
